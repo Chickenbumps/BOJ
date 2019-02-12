@@ -26,6 +26,7 @@ void VirusDFS(int x, int y)
         }
     }
 }
+
 int main(int argc, char const *argv[])
 {
     cin >> i_N >> i_M; // i_N = Height of Lab , i_M = Width of Lab
@@ -66,7 +67,7 @@ int main(int argc, char const *argv[])
 
                 for (int i = 0; i < i_N; i++)
                 {
-                    for (int i = 0; i < i_M; i++)
+                    for (int j = 0; j < i_M; j++)
                     {
                         if (i_CopyLab[i][j] == 2)
                         {
