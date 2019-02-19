@@ -1,5 +1,5 @@
 {
     "files.associations": {
-        "algorithm": "c++14"
+        "algorithm": "-std=c++14"
     }
 }

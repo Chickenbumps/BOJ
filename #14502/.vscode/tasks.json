@@ -6,7 +6,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "g++ -g 14502.cpp -o 14502"
+      "command": "g++ -g 14502.cpp -std=c++14 -o 14502"
     }
   ]
 }
