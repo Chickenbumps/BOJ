@@ -1,47 +1,42 @@
-//
-//  main.cpp
-//  #1697
-//
-//  Created by 조해성 on 2020/05/23.
-//  Copyright © 2020 조해성. All rights reserved.
-//
-
 #include <iostream>
 #include <queue>
-#define MAX  100001
 using namespace std;
+#define MAX 1000000
+bool check[MAX];
+int dist[MAX];
 
-int link[MAX][MAX];
-int map[MAX];
-int timeNum = 0;
-int n,k;
-queue<int> q;
-int x[] = {1,-1};
-
-void init(){
-    cin >> n >> k;
-    for (int i = 1; i <= MAX; i++) {
-        link[i][i+1] = 1;
-        link[i+1][i] = 1;
-        link[i][2*i] = 1;
-        link[2*i][i] = 1;
+int main(){
+  int n,k;
+  cin >> n >> k;
+  dist[n] = 0;
+  check[n] = true;
+  queue<int> q;
+  q.push(n);
+  while(!q.empty()){
+    int now = q.front();
+    q.pop();
+    if(2*now < MAX){
+      if (check[2*now] == false) {
+        q.push(2*now);
+        check[2*now] = true;
+        dist[2*now] = dist[now] + 1;
+      }
     }
-}
-
-void bfs(int start, int end){
-    map[start] = 0;
-    while (!q.empty()) {
-        start = q.front();
-        q.pop();
-        int s;
-        for (int i = 0; i < 2 ; i++) {
-            if (start > 0 && end < MAX) {
-                statements
-            }
-        }
+    if(now+1 < MAX) {
+      if (check[now+1] == false) {
+        q.push(now+1);
+        check[now+1] = true;
+        dist[now+1] = dist[now] + 1;
+      }
     }
-}
-
-int main(int argc, const char * argv[]) {
-    return 0;
+    if (now-1 >= 0) {
+      if (check[now-1] == false) {
+        q.push(now-1);
+        check[now-1] = true;
+        dist[now-1] = dist[now] + 1;
+      }
+    }
+  }
+  cout << dist[k] << '\n';
+  return 0;
 }
