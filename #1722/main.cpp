@@ -20,7 +20,7 @@ int main(){
       cout << v[i] << ' ';
     }
   }
-  if(k == 2){
+  else if(k == 2){
     vector<int> temp;
     int num = 1;
     int tmp;
